@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Infrastructure.DTOs.User;
+using Infrastructure.Models;
 using TaskManagerAPI.DTOs.Auth;
 using TaskManagerAPI.DTOs.Project;
 using TaskManagerAPI.DTOs.Task;
@@ -25,6 +26,7 @@ namespace TaskManagerAPI.Configurations
             CreateMap<TaskDto, TaskModel>().ReverseMap();
             CreateMap<TaskCreateDto, TaskModel>().ReverseMap();
             CreateMap<TaskUpdateDto, TaskModel>().ReverseMap();
+            CreateMap<PhotoDto, Photo>().ReverseMap();
         }
     }
 }
