@@ -1,4 +1,5 @@
 ﻿using Infrastructure.DTOs.User;
+using Microsoft.AspNetCore.Http;
 using TaskManagerAPI.DTOs.User;
 
 namespace TaskManagerAPI.Contracts.Manager
@@ -10,5 +11,6 @@ namespace TaskManagerAPI.Contracts.Manager
         Task<List<UserDto>> GetUsersAsync();
         Task<UserDto> UpdateUserAsync(UpdateUserDto userDto);
         Task DeleteUserAsync(int id);
+        Task<PhotoDto> AddPhotoAsync(IFormFile file);
     }
 }

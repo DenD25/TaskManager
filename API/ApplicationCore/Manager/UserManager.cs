@@ -1,8 +1,12 @@
-﻿using AutoMapper;
+﻿using ApplicationCore.Contracts.Service;
+using AutoMapper;
 using Infrastructure.DTOs.User;
+using Infrastructure.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using TaskManagerAPI.Contracts.Manager;
 using TaskManagerAPI.Contracts.Repository;
+using TaskManagerAPI.Contracts.Service;
 using TaskManagerAPI.DTOs.User;
 using TaskManagerAPI.Models;
 
@@ -11,12 +15,16 @@ namespace TaskManagerAPI.Manager
     public class UserManager: IUserManager
     {
         private readonly IMapper _mapper;
+        private readonly IUserService _userService;
+        private readonly IPhotoService _photoService;
         private readonly UserManager<User> _userManager;
         private readonly IUserRepository _userRepository;
-        public UserManager( IMapper mapper, IUserRepository userRepository, UserManager<User> userManager)
+        public UserManager( IMapper mapper, IUserRepository userRepository, UserManager<User> userManager, IPhotoService photoService, IUserService userService)
         {
             _mapper = mapper;
+            _userService = userService;
             _userManager = userManager;
+            _photoService = photoService;
             _userRepository = userRepository;
         }
 
@@ -68,6 +76,39 @@ namespace TaskManagerAPI.Manager
         public async Task DeleteUserAsync(int id)
         {
             await _userRepository.DeleteAsync(id);
+        }
+
+        public async Task<PhotoDto> AddPhotoAsync(IFormFile file)
+        {
+            var user = await _userRepository.UserByIdAsync(int.Parse(_userService.GetUserId()));
+
+            if (user.Photo != null)
+            {
+                var deletionResult = await _photoService.DeletePhotoAsync(user.Photo.PublicId);
+
+                if (deletionResult.Error != null)
+                    throw new Exception(deletionResult.Error.ToString());
+            }
+
+            var result = await _photoService.AddPhotoAsync(file);
+
+            if (result.Error != null)
+                throw new Exception(result.Error.ToString());
+
+            var photo = new Photo
+            {
+                Url = result.SecureUrl.AbsoluteUri,
+                PublicId = result.PublicId,
+                UserId = user.Id,
+            };
+
+            user.Photo = photo;
+
+            await _userRepository.UpdateAsync(user);
+
+            var photoDto = _mapper.Map<PhotoDto>(photo);
+
+            return photoDto;
         }
 
         private async Task<UserDto> MapUserToUserDto(User user)

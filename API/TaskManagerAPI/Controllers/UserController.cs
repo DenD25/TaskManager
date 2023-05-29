@@ -1,4 +1,5 @@
-﻿using Infrastructure.DTOs.User;
+﻿using ApplicationCore.Contracts.Service;
+using Infrastructure.DTOs.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagerAPI.Contracts.Manager;
@@ -7,7 +8,7 @@ using TaskManagerAPI.DTOs.User;
 namespace TaskManagerAPI.Controllers
 {
 
-    [Authorize(Policy = "AdminRole")]
+    [Authorize]
     public class UserController : BaseController
     {
         private readonly IUserManager _userManager;
@@ -74,6 +75,28 @@ namespace TaskManagerAPI.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+
+        // POST: api/User/add-photo
+        [HttpPost]
+        [Route("add-photo")]
+        public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file) 
+        {
+            try
+            {
+                if(file == null)
+                    return BadRequest("File is empty!"); 
+
+                var photo = await _userManager.AddPhotoAsync(file);
+
+                return photo;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }

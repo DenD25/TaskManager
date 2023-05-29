@@ -16,14 +16,18 @@ namespace TaskManagerAPI.Repository
 
         public async Task<List<User>> UsersAsync()
         {
-            var users = await _context.Users.ToListAsync();
+            var users = await _context.Users
+                .Include(x => x.Photo)
+                .ToListAsync();
 
             return users;
         }
 
         public async Task<User> UserByIdAsync(int id)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+            var user = await _context.Users
+                .Include(x => x.Photo)
+                .SingleOrDefaultAsync(u => u.Id == id);
 
             if (user == null)
                 throw new NullReferenceException("User does not exist!");
@@ -33,7 +37,10 @@ namespace TaskManagerAPI.Repository
 
         public async Task<User> UserByUsernameAsync(string username)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(u => u.UserName == username);
+            var user = await _context.Users
+                .Include(x => x.Photo)
+                .SingleOrDefaultAsync(u => u.UserName == username);
+
             if (user == null)
                 throw new NullReferenceException("User does not exist!");
 

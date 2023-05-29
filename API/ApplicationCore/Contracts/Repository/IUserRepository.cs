@@ -1,4 +1,5 @@
-﻿using TaskManagerAPI.DTOs.User;
+﻿using Infrastructure.Models;
+using Microsoft.AspNetCore.Http;
 using TaskManagerAPI.Models;
 
 namespace TaskManagerAPI.Contracts.Repository
