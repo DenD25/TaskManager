@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.20.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
 	 <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
 		 <PrivateAssets>all</PrivateAssets>
