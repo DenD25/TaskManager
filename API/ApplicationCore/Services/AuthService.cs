@@ -23,6 +23,7 @@ namespace ApplicationCore.Services
         public async Task<AuthUserDto> LoginAsync(LoginDto loginDto)
         {
             var user = await _userManager.Users
+                .Include(x => x.Photo)
                 .SingleOrDefaultAsync(x => x.Email == loginDto.Email);   
             
             if (user == null)
