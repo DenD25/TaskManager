@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ApplicationCore.Configurations;
+using ApplicationCore.Contracts.Service;
+using ApplicationCore.Services;
+using Microsoft.EntityFrameworkCore;
 using TaskManagerAPI.Configurations;
 using TaskManagerAPI.Contracts.Manager;
 using TaskManagerAPI.Contracts.Repository;
@@ -30,6 +33,9 @@ namespace TaskManagerAPI.Extensions
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IJWTService, JWTService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPhotoService,PhotoService>();
+
+            services.Configure<CloudinaryConfig>(config.GetSection("CloudnarySettings"));
 
             services.AddCors(options =>
             {
