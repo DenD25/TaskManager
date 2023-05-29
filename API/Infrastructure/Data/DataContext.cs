@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Infrastructure.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TaskManagerAPI.Models;
 
@@ -11,12 +12,23 @@ namespace TaskManagerAPI.Data
         }
 
         public DbSet<TaskModel> Tasks { get; set; }
+        public DbSet<Photo> Photos { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectUser> ProjectUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<User>()
+                .HasOne(x => x.Photo)
+                .WithOne(x => x.User)
+                .HasForeignKey<Photo>(x => x.UserId);
+
+            builder.Entity<Photo>()
+                .HasOne(x => x.User)
+                .WithOne(x => x.Photo)
+                .HasForeignKey<User>(x => x.PhotoId);
 
             builder.Entity<ProjectUser>()
                 .HasKey(pu => new { pu.ProjectId, pu.UserId });
