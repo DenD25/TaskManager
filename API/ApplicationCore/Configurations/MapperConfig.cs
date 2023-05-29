@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
+using Infrastructure.DTOs.Auth;
+using Infrastructure.DTOs.Project;
+using Infrastructure.DTOs.Task;
 using Infrastructure.DTOs.User;
 using Infrastructure.Models;
-using TaskManagerAPI.DTOs.Auth;
-using TaskManagerAPI.DTOs.Project;
-using TaskManagerAPI.DTOs.Task;
-using TaskManagerAPI.DTOs.User;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Configurations
+namespace ApplicationCore.Configurations
 {
     public class MapperConfig : Profile
     {

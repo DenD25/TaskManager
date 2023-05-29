@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.Enums
+﻿namespace Infrastructure.Enums
 {
     public enum ProjectUserRolesEnum
     {

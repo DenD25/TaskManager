@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.Contracts.Service
+﻿namespace ApplicationCore.Contracts.Service
 {
     public interface IUserService
     {

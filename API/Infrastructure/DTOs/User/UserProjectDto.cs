@@ -1,7 +1,6 @@
-﻿using Infrastructure.DTOs.User;
-using TaskManagerAPI.Enums;
+﻿using Infrastructure.Enums;
 
-namespace TaskManagerAPI.DTOs.User
+namespace Infrastructure.DTOs.User
 {
     public class UserProjectDto : UserDto
     {

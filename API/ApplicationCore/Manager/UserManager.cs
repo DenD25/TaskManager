@@ -1,16 +1,13 @@
-﻿using ApplicationCore.Contracts.Service;
+﻿using ApplicationCore.Contracts.Manager;
+using ApplicationCore.Contracts.Repository;
+using ApplicationCore.Contracts.Service;
 using AutoMapper;
 using Infrastructure.DTOs.User;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using TaskManagerAPI.Contracts.Manager;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.DTOs.User;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Manager
+namespace ApplicationCore.Manager
 {
     public class UserManager: IUserManager
     {

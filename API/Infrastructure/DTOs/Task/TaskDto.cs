@@ -1,6 +1,6 @@
-﻿using TaskManagerAPI.Enums;
+﻿using Infrastructure.Enums;
 
-namespace TaskManagerAPI.DTOs.Task
+namespace Infrastructure.DTOs.Task
 {
     public class TaskDto
     {

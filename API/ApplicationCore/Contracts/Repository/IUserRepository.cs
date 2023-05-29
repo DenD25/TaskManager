@@ -1,8 +1,6 @@
 ﻿using Infrastructure.Models;
-using Microsoft.AspNetCore.Http;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Contracts.Repository
+namespace ApplicationCore.Contracts.Repository
 {
     public interface IUserRepository
     {

@@ -1,7 +1,7 @@
 ﻿using Infrastructure.DTOs.User;
-using TaskManagerAPI.Models;
+using Infrastructure.Models;
 
-namespace TaskManagerAPI.Contracts.Service
+namespace ApplicationCore.Contracts.Service
 {
     public interface IJWTService
     {

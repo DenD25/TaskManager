@@ -1,17 +1,16 @@
-﻿using Infrastructure.DTOs.User;
+﻿using ApplicationCore.Configurations;
+using ApplicationCore.Contracts.Manager;
+using ApplicationCore.Contracts.Service;
+using Infrastructure.DTOs.User;
+using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using TaskManagerAPI.Configurations;
-using TaskManagerAPI.Contracts.Manager;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.DTOs.User;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Services
+namespace ApplicationCore.Services
 {
     public class JWTService : IJWTService
     {

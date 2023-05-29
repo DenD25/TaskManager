@@ -1,7 +1,7 @@
-﻿using TaskManagerAPI.DTOs.Project;
-using TaskManagerAPI.Enums;
+﻿using Infrastructure.DTOs.Project;
+using Infrastructure.Enums;
 
-namespace TaskManagerAPI.Contracts.Manager
+namespace ApplicationCore.Contracts.Manager
 {
     public interface IProjectManager
     {

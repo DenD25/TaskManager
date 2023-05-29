@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using ApplicationCore.Configurations;
+using Infrastructure.Data;
+using Infrastructure.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using TaskManagerAPI.Configurations;
-using TaskManagerAPI.Data;
-using TaskManagerAPI.Models;
 
 namespace TaskManagerAPI.Extensions
 {

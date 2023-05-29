@@ -1,8 +1,7 @@
-﻿using Infrastructure.Models;
+﻿using Infrastructure.Enums;
 using Microsoft.AspNetCore.Identity;
-using TaskManagerAPI.Enums;
 
-namespace TaskManagerAPI.Models
+namespace Infrastructure.Models
 {
     public class User : IdentityUser<int>
     {

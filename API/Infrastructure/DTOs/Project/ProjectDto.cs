@@ -1,8 +1,7 @@
-﻿using TaskManagerAPI.DTOs.Task;
-using TaskManagerAPI.DTOs.User;
-using TaskManagerAPI.Models;
+﻿using Infrastructure.DTOs.Task;
+using Infrastructure.DTOs.User;
 
-namespace TaskManagerAPI.DTOs.Project
+namespace Infrastructure.DTOs.Project
 {
     public class ProjectDto
     {

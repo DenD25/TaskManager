@@ -1,4 +1,4 @@
-﻿using TaskManagerAPI.DTOs.Task;
+﻿using Infrastructure.DTOs.Task;
 
 namespace Infrastructure.DTOs.Task
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace TaskManagerAPI.Models
+namespace Infrastructure.Models
 {
     public class Role : IdentityRole<int>
     {

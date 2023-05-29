@@ -1,8 +1,7 @@
-﻿using Infrastructure.DTOs.User;
+﻿using ApplicationCore.Contracts.Service;
+using Infrastructure.DTOs.Auth;
+using Infrastructure.DTOs.User;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.DTOs.Auth;
-using TaskManagerAPI.DTOs.User;
 
 namespace TaskManagerAPI.Controllers
 {

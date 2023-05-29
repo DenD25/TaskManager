@@ -1,9 +1,8 @@
 ﻿using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Data
+namespace Infrastructure.Data
 {
     public class DataContext : IdentityDbContext<User, Role, int>
     {

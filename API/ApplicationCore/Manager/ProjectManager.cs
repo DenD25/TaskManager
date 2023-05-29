@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using TaskManagerAPI.Contracts.Manager;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.DTOs.Project;
-using TaskManagerAPI.Enums;
-using TaskManagerAPI.Models;
+﻿using ApplicationCore.Contracts.Manager;
+using ApplicationCore.Contracts.Repository;
+using ApplicationCore.Contracts.Service;
+using AutoMapper;
+using Infrastructure.DTOs.Project;
+using Infrastructure.Enums;
+using Infrastructure.Models;
 
-namespace TaskManagerAPI.Manager
+namespace ApplicationCore.Manager
 {
     public class ProjectManager : IProjectManager
     {
@@ -15,6 +15,8 @@ namespace TaskManagerAPI.Manager
         private readonly IUserService _userService;
         private readonly IUserRepository _userRepository;
         private readonly IProjectRepository _projectRepository;
+
+        public IProjectRepository ProjectRepository => _projectRepository;
 
         public ProjectManager(IProjectRepository projectRepository, IUserRepository userRepository, IMapper mapper, IUserService userService)
         {
@@ -26,7 +28,7 @@ namespace TaskManagerAPI.Manager
 
         public async Task<ProjectDto> GetProjectByIdAsync(int projectId)
         {
-            var project = await _projectRepository.ProjectByIdAsync(projectId);
+            var project = await ProjectRepository.ProjectByIdAsync(projectId);
 
             var projectDto = _mapper.Map<ProjectDto>(project);
 
@@ -35,7 +37,7 @@ namespace TaskManagerAPI.Manager
 
         public async Task<List<ProjectDto>> GetProjectsAsync()
         {
-            var projects =  await _projectRepository.GetProjecsAsync();
+            var projects =  await ProjectRepository.GetProjecsAsync();
 
             var projectsDto = _mapper.Map<List<ProjectDto>>(projects);
 
@@ -58,7 +60,7 @@ namespace TaskManagerAPI.Manager
 
             projectCreate.Users = new List<ProjectUser> { projectUser };
 
-            var project = await _projectRepository.CreateAsync(projectCreate);
+            var project = await ProjectRepository.CreateAsync(projectCreate);
 
             var projectDto = _mapper.Map<ProjectDto>(project);
 
@@ -77,7 +79,7 @@ namespace TaskManagerAPI.Manager
 
             var projectUpdate = _mapper.Map<Project>(projectUpdateDto);
 
-            var project = await _projectRepository.UpdateAsync(projectUpdate);
+            var project = await ProjectRepository.UpdateAsync(projectUpdate);
 
             var projectDto = _mapper.Map<ProjectDto>(project);
 
@@ -86,14 +88,14 @@ namespace TaskManagerAPI.Manager
 
         public async Task DeleteProjectAsync(int projectId)
         {
-            var role = await _projectRepository.UserProjectRoleAsync(projectId);
+            var role = await ProjectRepository.UserProjectRoleAsync(projectId);
 
             if (role != ProjectUserRolesEnum.Owner)
             {
                 throw new ArgumentException("User have`t permission");
             }
 
-            await _projectRepository.DeleteAsync(projectId);
+            await ProjectRepository.DeleteAsync(projectId);
         }
 
         public async Task<ProjectDto> AddUserToProjectAsync(int projectId, int userId)
@@ -106,11 +108,11 @@ namespace TaskManagerAPI.Manager
                 throw new ArgumentException("User have`t permission");
             }
 
-            var project = await _projectRepository.ProjectByIdAsync(projectId);
+            var project = await ProjectRepository.ProjectByIdAsync(projectId);
 
             var user = await _userRepository.UserByIdAsync(userId);
 
-            var response = await _projectRepository.AddUserAsync(project, user);
+            var response = await ProjectRepository.AddUserAsync(project, user);
 
             var projectDto = _mapper.Map<ProjectDto>(project);
 
@@ -127,11 +129,11 @@ namespace TaskManagerAPI.Manager
                 throw new ArgumentException("User have`t permission");
             }
 
-            var project = await _projectRepository.ProjectByIdAsync(projectId);
+            var project = await ProjectRepository.ProjectByIdAsync(projectId);
 
             var user = await _userRepository.UserByIdAsync(userId);
 
-            var response = await _projectRepository.AddUserAsync(project, user);
+            var response = await ProjectRepository.AddUserAsync(project, user);
 
             var projectDto = _mapper.Map<ProjectDto>(project);
 
@@ -140,14 +142,14 @@ namespace TaskManagerAPI.Manager
 
         public async Task<ProjectUserRolesEnum?> GetUserProjectRoleAsync(int projectId)
         {
-            var role = await _projectRepository.UserProjectRoleAsync(projectId);
+            var role = await ProjectRepository.UserProjectRoleAsync(projectId);
 
             return role;
         }
 
         public async Task<bool> GetUserExistAsync(int projectId, int? userId)
         {
-            var existingUser = await _projectRepository.UserExistAsync(projectId, userId);
+            var existingUser = await ProjectRepository.UserExistAsync(projectId, userId);
 
             return existingUser;
         }

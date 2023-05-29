@@ -1,11 +1,7 @@
-﻿using TaskManagerAPI.Models;
+﻿using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.Json;
 
-namespace TaskManagerAPI.Data
+namespace Infrastructure.Data
 {
     public class Seed
     {

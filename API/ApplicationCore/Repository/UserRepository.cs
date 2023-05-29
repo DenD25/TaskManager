@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.Data;
-using TaskManagerAPI.Models;
+﻿using ApplicationCore.Contracts.Repository;
+using Infrastructure.Data;
+using Infrastructure.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace TaskManagerAPI.Repository
+namespace ApplicationCore.Repository
 {
     public class UserRepository : IUserRepository
     {       

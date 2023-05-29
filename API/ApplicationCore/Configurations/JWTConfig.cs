@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.Configurations
+﻿namespace ApplicationCore.Configurations
 {
     public class JWTConfig
     {

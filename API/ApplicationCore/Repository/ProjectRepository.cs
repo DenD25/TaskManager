@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ApplicationCore.Contracts.Repository;
+using ApplicationCore.Contracts.Service;
+using Infrastructure.Data;
+using Infrastructure.Enums;
+using Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.Data;
-using TaskManagerAPI.Enums;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Repository
+namespace ApplicationCore.Repository
 {
     public class ProjectRepository : IProjectRepository
     {

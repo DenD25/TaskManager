@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using TaskManagerAPI.DTOs.Auth;
-using TaskManagerAPI.Models;
+﻿using Infrastructure.DTOs.Auth;
+using Microsoft.AspNetCore.Identity;
 
-namespace TaskManagerAPI.Contracts.Service
+namespace ApplicationCore.Contracts.Service
 {
     public interface IAuthService
     {

@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.DTOs.User
+﻿namespace Infrastructure.DTOs.User
 {
     public class UpdateUserDto
     {

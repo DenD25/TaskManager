@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ApplicationCore.Contracts.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.JsonWebTokens;
 using System.Security.Claims;
-using TaskManagerAPI.Contracts.Service;
 
-namespace TaskManagerAPI.Services
+namespace ApplicationCore.Services
 {
     public class UserService : IUserService
     {

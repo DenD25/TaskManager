@@ -1,15 +1,12 @@
 ﻿using ApplicationCore.Configurations;
+using ApplicationCore.Contracts.Manager;
+using ApplicationCore.Contracts.Repository;
 using ApplicationCore.Contracts.Service;
+using ApplicationCore.Manager;
+using ApplicationCore.Repository;
 using ApplicationCore.Services;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using TaskManagerAPI.Configurations;
-using TaskManagerAPI.Contracts.Manager;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.Data;
-using TaskManagerAPI.Manager;
-using TaskManagerAPI.Repository;
-using TaskManagerAPI.Services;
 
 namespace TaskManagerAPI.Extensions
 {

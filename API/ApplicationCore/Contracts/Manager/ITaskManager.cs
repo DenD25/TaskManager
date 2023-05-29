@@ -1,7 +1,6 @@
 ﻿using Infrastructure.DTOs.Task;
-using TaskManagerAPI.DTOs.Task;
 
-namespace TaskManagerAPI.Contracts.Manager
+namespace ApplicationCore.Contracts.Manager
 {
     public interface ITaskManager
     {

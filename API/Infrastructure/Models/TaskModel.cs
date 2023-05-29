@@ -1,6 +1,6 @@
-﻿using TaskManagerAPI.Enums;
+﻿using Infrastructure.Enums;
 
-namespace TaskManagerAPI.Models
+namespace Infrastructure.Models
 {
     public class TaskModel
     {

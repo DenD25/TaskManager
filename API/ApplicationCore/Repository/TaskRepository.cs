@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.Data;
-using TaskManagerAPI.DTOs.Task;
-using TaskManagerAPI.Enums;
-using TaskManagerAPI.Models;
+﻿using ApplicationCore.Contracts.Repository;
+using Infrastructure.Data;
+using Infrastructure.Enums;
+using Infrastructure.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace TaskManagerAPI.Repository
+namespace ApplicationCore.Repository
 {
     public class TaskRepository : ITaskRepository
     {

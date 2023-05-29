@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.DTOs.Auth
+﻿namespace Infrastructure.DTOs.Auth
 {
     public class AuthUserDto
     {

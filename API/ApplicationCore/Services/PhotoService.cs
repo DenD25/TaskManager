@@ -2,10 +2,10 @@
 using ApplicationCore.Contracts.Service;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using TaskManagerAPI.Data;
 
 namespace ApplicationCore.Services
 {

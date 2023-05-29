@@ -1,6 +1,4 @@
-﻿using TaskManagerAPI.Models;
-
-namespace Infrastructure.Models
+﻿namespace Infrastructure.Models
 {
     public class Photo
     {

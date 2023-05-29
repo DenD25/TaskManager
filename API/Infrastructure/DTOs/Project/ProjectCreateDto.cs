@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.DTOs.Project
+﻿namespace Infrastructure.DTOs.Project
 {
     public class ProjectCreateDto
     {

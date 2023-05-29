@@ -1,12 +1,11 @@
-﻿using AutoMapper;
+﻿using ApplicationCore.Contracts.Manager;
+using ApplicationCore.Contracts.Repository;
+using AutoMapper;
 using Infrastructure.DTOs.Task;
-using TaskManagerAPI.Contracts.Manager;
-using TaskManagerAPI.Contracts.Repository;
-using TaskManagerAPI.DTOs.Task;
-using TaskManagerAPI.Enums;
-using TaskManagerAPI.Models;
+using Infrastructure.Enums;
+using Infrastructure.Models;
 
-namespace TaskManagerAPI.Manager
+namespace ApplicationCore.Manager
 {
     public class TaskManager : ITaskManager
     {

@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using ApplicationCore.Contracts.Service;
+using AutoMapper;
+using Infrastructure.DTOs.Auth;
+using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TaskManagerAPI.Contracts.Service;
-using TaskManagerAPI.DTOs.Auth;
-using TaskManagerAPI.Models;
 
-namespace TaskManagerAPI.Services
+namespace ApplicationCore.Services
 {
     public class AuthService : IAuthService
     {

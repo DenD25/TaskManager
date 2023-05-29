@@ -1,7 +1,6 @@
-﻿using TaskManagerAPI.DTOs.Task;
-using TaskManagerAPI.Models;
+﻿using Infrastructure.Models;
 
-namespace TaskManagerAPI.Contracts.Repository
+namespace ApplicationCore.Contracts.Repository
 {
     public interface ITaskRepository
     {

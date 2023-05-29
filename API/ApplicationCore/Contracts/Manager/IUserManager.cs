@@ -1,8 +1,7 @@
 ﻿using Infrastructure.DTOs.User;
 using Microsoft.AspNetCore.Http;
-using TaskManagerAPI.DTOs.User;
 
-namespace TaskManagerAPI.Contracts.Manager
+namespace ApplicationCore.Contracts.Manager
 {
     public interface IUserManager
     {

@@ -1,9 +1,7 @@
-﻿using TaskManagerAPI.DTOs.Project;
-using TaskManagerAPI.DTOs.Task;
-using TaskManagerAPI.Enums;
-using TaskManagerAPI.Models;
+﻿using Infrastructure.Enums;
+using Infrastructure.Models;
 
-namespace TaskManagerAPI.Contracts.Repository
+namespace ApplicationCore.Contracts.Repository
 {
     public interface IProjectRepository
     {

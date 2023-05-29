@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.DTOs.Task
+﻿namespace Infrastructure.DTOs.Task
 {
     public class TaskUpdateDto : TaskCreateDto
     {

@@ -1,4 +1,4 @@
-﻿namespace TaskManagerAPI.Models
+﻿namespace Infrastructure.Models
 {
     public class Project
     {

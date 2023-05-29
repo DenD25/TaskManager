@@ -1,11 +1,11 @@
+using Infrastructure.Data;
+using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text.Json.Serialization;
-using TaskManagerAPI.Data;
 using TaskManagerAPI.Extensions;
-using TaskManagerAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
