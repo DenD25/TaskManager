@@ -13,6 +13,7 @@ namespace Infrastructure.Data
         public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Message> Messages { get; set; }
         public DbSet<ProjectUser> ProjectUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -31,6 +32,16 @@ namespace Infrastructure.Data
 
             builder.Entity<ProjectUser>()
                 .HasKey(pu => new { pu.ProjectId, pu.UserId });
+
+            builder.Entity<User>()
+                .HasMany(x => x.Messages)
+                .WithOne(x => x.Sender)
+                .HasForeignKey(x => x.SenderId);
+
+            builder.Entity<Project>()
+                .HasMany(x => x.Messages)
+                .WithOne(x => x.Project)
+                .HasForeignKey(x => x.ProjectId);
 
             builder.Entity<ProjectUser>()
                 .HasOne(x => x.User)

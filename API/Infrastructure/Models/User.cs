@@ -14,5 +14,6 @@ namespace Infrastructure.Models
         public ICollection<Role> Roles { get; set; } 
         public ICollection<TaskModel>? Tasks { get; set; }
         public ICollection<ProjectUser>? Projects { get; set; }
+        public ICollection<Message>? Messages { get; set; }
     }
 }

@@ -8,5 +8,6 @@
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public ICollection<TaskModel>? Tasks { get; set; }
         public ICollection<ProjectUser>? Users { get; set; }
+        public ICollection<Message>? Messages { get; set; }
     }
 }
