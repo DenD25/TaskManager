@@ -4,6 +4,7 @@
     {
         string GetEmail();
         string GetUserId();
+        string GetUsername();
         IList<string> GetUserRoles();
     }
 }

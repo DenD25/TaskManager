@@ -20,6 +20,11 @@ namespace ApplicationCore.Services
             return _user.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Email).Value;
         }
 
+        public string GetUsername()
+        {
+            return _user.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.UniqueName).Value;
+        }
+
         public string GetUserId()
         {
             return _user.SingleOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
