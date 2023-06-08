@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Infrastructure.DTOs.Auth;
+using Infrastructure.DTOs.Message;
 using Infrastructure.DTOs.Project;
 using Infrastructure.DTOs.Task;
 using Infrastructure.DTOs.User;
@@ -25,6 +26,10 @@ namespace ApplicationCore.Configurations
             CreateMap<TaskCreateDto, TaskModel>().ReverseMap();
             CreateMap<TaskUpdateDto, TaskModel>().ReverseMap();
             CreateMap<PhotoDto, Photo>().ReverseMap();
+            CreateMap<CreateMessageDto, Message>().ReverseMap();
+            CreateMap<MessageDto, Message>().ReverseMap()
+                .ForMember(x => x.SenderUsername, opt => opt.MapFrom(x => x.Sender.UserName))
+                .ForMember(x => x.SenderPhotoUrl, opt => opt.MapFrom(x => x.Sender.Photo.Url));
         }
     }
 }
