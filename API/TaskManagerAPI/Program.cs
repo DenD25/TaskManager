@@ -1,3 +1,4 @@
+using ApplicationCore.Hubs;
 using Infrastructure.Data;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
@@ -45,11 +46,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ProjectChatHub>("/projectChatHub");
+});
 
 
 app.MapControllers();
@@ -69,5 +77,4 @@ catch (Exception e)
     var logger = services.GetRequiredService<ILogger<Program>>();
     logger.LogError(e, "Error during migration");
 }
-
 app.Run();
