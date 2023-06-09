@@ -21,9 +21,13 @@ namespace TaskManagerAPI.Extensions
 
             services.AddAutoMapper(typeof(MapperConfig));
 
+            services.AddSignalR();
+
             services.AddScoped<IUserManager, UserManager>();
             services.AddScoped<ITaskManager, TaskManager>();
             services.AddScoped<IProjectManager, ProjectManager>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IMessageManager, MessageManager>();
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
